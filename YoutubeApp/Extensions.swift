@@ -16,6 +16,8 @@ extension UIColor {
     }
 }
 
+// add Contraint
+
 extension UIView{
     func addConstraintsWithFormat(format: String, views: UIView...){
         var viewsDictionary = [String: UIView]()
@@ -25,5 +27,24 @@ extension UIView{
             viewsDictionary[key] = view
         }
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
+    }
+}
+
+// Load data Json
+
+extension UIImageView {
+    func loadImageUsingUrlString(urlString: String){
+        let url = URL(string: urlString)
+        URLSession.shared.dataTask(with: url!, completionHandler: {(data, respones, error) in
+        
+            if error != nil {
+                print(error)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.image = UIImage(data: data!)
+            }
+        }).resume()
     }
 }
