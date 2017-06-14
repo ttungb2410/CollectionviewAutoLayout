@@ -54,3 +54,6 @@ addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .left, relatedBy: 
 addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .right, relatedBy: .equal, toItem: thumbnailImageView, attribute: .right, multiplier: 1, constant: 0))
 }
 ```
+
+
+**TTung**
